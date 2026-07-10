@@ -100,3 +100,4 @@ with open(os.path.expanduser("~/.bashrc"), 'r') as f:
 # Now use them
 print(f"GOOGLE_CLOUD_PROJECT = {os.environ.get('GOOGLE_CLOUD_PROJECT')}")
 print(f"WORKSPACE_BUCKET = {os.environ.get('WORKSPACE_BUCKET')}")
+
