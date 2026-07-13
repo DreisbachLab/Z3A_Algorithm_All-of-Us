@@ -6,9 +6,6 @@ import pandas_gbq
 import os
 dataset = os.environ.get("WORKSPACE_CDR")
 
-# from tqdm.auto import tqdm
-# tqdm.pandas()
-
 print(df1)
 
 def cluster_lmps(df):
@@ -121,10 +118,10 @@ def merge_clusters(df):
             "last_zcode": last_record["concept_code"],
             "last_zcode_date": last_record["condition_start_date"]})
         i += 1
-#im going to LOSE my midn
+
     return pd.DataFrame(merged)
 
 #apply for each person
 final_episodes = (lmp_summary.groupby("person_id", group_keys=False)
-                  .progress_apply(merge_clusters)
+                  .apply(merge_clusters)
                   .reset_index(drop=True))
